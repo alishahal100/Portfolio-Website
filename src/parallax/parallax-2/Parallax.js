@@ -101,6 +101,27 @@ export const Parallax = () => {
     });
   }, []);
 
+
+  let hiText = useRef(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Animation for the "Hi, I'm Ali" text
+    gsap.from(hiText, {
+      xPercent: -100,
+      opacity: 0,
+      duration: 2,
+      ease: "power5.out",
+      scrollTrigger: {
+        trigger: hiText,
+        start: "top 80%",
+        end: "top 50%",
+        toggleActions: "play none none reverse",
+      },
+    });
+  }, []); // <-- Add the closing curly brace for the useEffect here
+  
   
 
   return (
@@ -113,7 +134,8 @@ export const Parallax = () => {
       </nav>
       <section id="home" className="banner">
         <div className="banner-content">
-          <h2>Hi, I'm Ali</h2>
+          <h2 ref={(el) => (hiText = el)}>Hi, I'm Ali</h2>
+
           <h3>Frontend Developer</h3>
         </div>
       </section>
