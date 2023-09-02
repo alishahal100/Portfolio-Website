@@ -36,4 +36,5 @@ jobs:
         run: npm ci && npm run build
 
       - name: Deploy to Firebase Hosting
-        run: npx firebase deploy --only hosting --project portfolio-website-60ee2
+        run: npx firebase deploy --only hosting --project portfolio-website-60ee2 --debug
+      
