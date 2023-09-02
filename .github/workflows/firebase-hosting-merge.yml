@@ -23,11 +23,11 @@ jobs:
       - name: Set up Firebase
         run: |
           # Authenticate with Firebase (you might need to replace the command with your own authentication method)
-          firebase login:ci --interactive
-          echo "Firebase authenticated successfully."
+          echo $FIREBASE_TOKEN > firebase-token  # Save the secret to a file
+          npx firebase login:ci --token $(cat firebase-token)  # Authenticate using the secret
 
       - name: Build React App
         run: npm ci && npm run build
 
       - name: Deploy to Firebase Hosting
-        run: npx firebase deploy --only hosting --project portfolio-website-60ee2 --token $FIREBASE_TOKEN
+        run: npx firebase deploy --only hosting --project portfolio-website-60ee2
