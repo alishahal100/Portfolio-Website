@@ -24,12 +24,13 @@ jobs:
         run: |
           # Save the service account JSON to a file
           echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > service-account.json
-
+      
           # Set the GOOGLE_APPLICATION_CREDENTIALS environment variable
-          export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/service-account.json
-
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/service-account.json" >> $GITHUB_ENV
+      
           # Authenticate with Firebase using the token
           npx firebase use --add portfolio-website-60ee2 --token "${{ secrets.FIREBASE_TOKEN }}"
+      
           
       - name: Build React App
         run: npm ci && npm run build
