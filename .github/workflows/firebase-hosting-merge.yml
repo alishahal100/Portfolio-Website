@@ -23,7 +23,7 @@ jobs:
       - name: Set up Firebase
         run: |
           # Authenticate with Firebase using the secret token
-          npx firebase login:ci --token ${{ secrets.FIREBASE_TOKEN }}
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.FIREBASE_TOKEN }}" > .npmrc
 
       - name: Build React App
         run: npm ci && npm run build
