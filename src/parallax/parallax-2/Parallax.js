@@ -127,7 +127,7 @@ export const Parallax = () => {
   return (
     <>
       <nav>
-        <img src={logo} />
+        <img  src={logo} alt="logo" />
         <a className="navc" href="#home"> Home </a>
         <a className="navc" href="#skills"> Skills </a>
         <a className="navc" href="#contact"> Contact </a>
@@ -141,7 +141,7 @@ export const Parallax = () => {
       </section>
       <div id="skills"  ref={containerRef} className="container">
           <section class="description panel blue">
-      <img src={html} />
+      <img alt="logo" src={html} />
       <h2>HTML</h2>
       <p>
         HTML (Hypertext Markup Language) is the standard markup language used to create web pages. 
@@ -152,7 +152,7 @@ export const Parallax = () => {
     </section>
 
     <section className="panel green">
-        <img src={css} />
+        <img alt="logo" src={css} />
         <h2>CSS</h2>
         <p>
           CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document
@@ -165,7 +165,7 @@ export const Parallax = () => {
       </section>
 
       <section className="description panel blue">
-        <img src={es6} />
+        <img alt="logo" src={es6} />
         <h2>ES6</h2>
         <p>
           ES6 (ECMAScript 2015) is the latest version of the ECMAScript standard, which is the official name for 
@@ -178,7 +178,7 @@ export const Parallax = () => {
 
 
       <section className="panel red">
-        <img src={react} />
+        <img alt="logo" src={react} />
         <h2>React JS</h2>
         <p>
           React JS is a popular JavaScript library for building user interfaces. It allows you to create reusable 
