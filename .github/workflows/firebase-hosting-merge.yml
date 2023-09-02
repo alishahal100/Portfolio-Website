@@ -22,8 +22,8 @@ jobs:
 
       - name: Set up Firebase
         run: |
-          # Authenticate with Firebase using the secret token
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.FIREBASE_TOKEN }}" > .npmrc
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > service-account.json
+          npx firebase use --add portfolio-website-60ee2 --token "${{ secrets.FIREBASE_TOKEN }}" --serviceAccount "service-account.json"
 
       - name: Build React App
         run: npm ci && npm run build
